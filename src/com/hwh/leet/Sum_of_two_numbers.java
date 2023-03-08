@@ -1,6 +1,7 @@
 package com.hwh.leet;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * @author hwh
@@ -15,7 +16,7 @@ public class Sum_of_two_numbers {
         System.out.println(Arrays.toString(result));
     }
     //暴力解法
-    public static int[] twoSum(int[] nums, int target) {
+    public static int[] twoSum1(int[] nums, int target) {
         int a, b;
         int[] result = new int[2];
         for (int i = 0; i < nums.length; i++) {
@@ -29,5 +30,16 @@ public class Sum_of_two_numbers {
             }
         }
         return result;
+    }
+    //使用哈希表时间复杂度O(1)，空间复杂度O(N)
+    public static int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            if(map.containsKey(target-nums[i])){
+                return new int[]{i,map.get(target-nums[i])};
+            }
+            map.put(nums[i],i);
+        }
+        return new int[0];
     }
 }
