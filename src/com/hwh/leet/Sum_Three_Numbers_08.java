@@ -31,7 +31,7 @@ public class Sum_Three_Numbers_08 {
                 while (b<c && nums[b]+nums[c]>target){
                     c--;
                 }
-                if(b==c){
+                if(b==c){//因为如果c已经等于b了，那么没有必要再循环了，因为后面的b已经大于c了,不和我们的逻辑了
                     break;
                 }
                 if(nums[b]+nums[c]==target){
