@@ -6,11 +6,11 @@ package com.hwh.leet;
  */
 public class Finds_First_And_Last_Position_19 {
     public static void main(String[] args) {
-        int i = binarySearchLeft(new int[]{1, 2, 3, 3, 5}, 3);
+        int i = binarySearchLeft(new int[]{1, 2, 3, 3, 5}, 7);
         int j = binarySearchRight(new int[]{1, 2, 3, 3, 5}, 3);
         System.out.println("i = " + i);
         System.out.println("j = " + j);
-       int[] a= new int[]{i,j};
+//       int[] a= new int[]{i,j};
     }
 
     /**
@@ -36,6 +36,13 @@ public class Finds_First_And_Last_Position_19 {
         if(left==nums.length)return -1;//target比所有数都大
         return nums[left]==target?left:-1;
      }
+
+    /**
+     * 二分法找有边界
+     * @param nums
+     * @param target
+     * @return
+     */
     private static int  binarySearchRight(int[] nums, int target) {
         if(nums.length==0||nums==null){
             return -1;
@@ -45,12 +52,12 @@ public class Finds_First_And_Last_Position_19 {
         while (left<right){//结束循环条件left==right
             int mid=left+(right-left)/2;
             if(nums[mid]<=target){
-                left=mid+1;
+                left=mid+1;//在[mid+1,right)中找
             }else if(nums[mid]>target){
-                right=mid;
+                right=mid;//在[left,mid)中找
             }
         }
-        if(left==0)return -1;//target比所有数都大
+        if(left==nums.length)return -1;//target比所有数都大
         return nums[left-1]==target?left-1:-1;
     }
     }
