@@ -66,6 +66,7 @@ public class Catch_Rain_21 {
                         int temp = (Math.abs(i - head) - 1) * Math.min(height[head], height[i]) - hinder;
                         Arr arr = new Arr(head, i, temp);
                         list.add(arr);
+
                         hinder = 0;
                     }
                     stack.push(i);
