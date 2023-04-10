@@ -1,0 +1,18 @@
+package com.hwh.leet.util;
+
+/**
+ * @author hwh
+ * @create 2023-04-10 18:30
+ */
+public class TreeNode {
+   public int val;
+    public TreeNode left;
+    public TreeNode right;
+    public TreeNode() {}
+    public TreeNode(int val) { this.val = val; }
+    public  TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
